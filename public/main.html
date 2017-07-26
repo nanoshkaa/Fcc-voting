@@ -1,0 +1,14 @@
+
+<nav class=class="btn-group btn-group-justified">
+<a href="/profile" ng-if="vm.isLoggedIn() === true"><button class="btn btn-default">Profile</button></a>
+<a href="/polls" ><button class="btn btn-success">Polls</button></a>
+<a href="/login" ng-if="vm.isLoggedIn() !== true"><button class="btn btn-danger">Login</button></a>
+<a href="/register" ng-if="vm.isLoggedIn() !== true"><button class="btn btn-warning">Register</button></a>
+<button class="btn btn-info" ng-click="vm.logOut();" ng-if="vm.isLoggedIn() === true">Logout</button>
+</nav>
+<hr>
+<div class="btn-group btn-group-justified">
+  <h1>Voting for fun</h1>
+</div>
+<p>Voting app build in: Html, Javascript, Nodejs, React, Express, Angular, Mongo.</p>
+<a href="https://www.linkedin.com/in/naima-daruich-b64128b/">@nanoshkaa</a>

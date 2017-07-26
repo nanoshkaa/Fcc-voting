@@ -1,0 +1,29 @@
+<nav class=class="btn-group btn-group-justified">
+<a href="/profile" ng-if="vm.isLoggedIn() === true"><button class="btn btn-default">Profile</button></a>
+<a href="/polls" ><button class="btn btn-success">Polls</button></a>
+<a href="/login" ng-if="vm.isLoggedIn() !== true"><button class="btn btn-danger">Login</button></a>
+<a href="/register" ng-if="vm.isLoggedIn() !== true"><button class="btn btn-warning">Register</button></a>
+<button class="btn btn-info" ng-click="vm.logOut();" ng-if="vm.isLoggedIn() === true">Logout</button>
+</nav>
+<div>
+   
+    <hr>
+    <div class="add" ng-if="vm.isLoggedIn() !== true">
+        <p>To add a new poll You need to login or register! </p>
+    </div>
+    <div class="add" ng-if="vm.isLoggedIn() === true">
+    <input type="text" ng-model="vm.poll.name" class="form-control" placeholder="Poll describtion or poll quastion">
+    <br>
+    <input type="text" ng-model="vm.poll.options[$index].name" class="form-control" placeholder="Poll Option" ng-repeat="poll in vm.poll.options track by $index" style="margin-bottom:10px">
+    <br>
+    <button ng-click="vm.addOption()" class="btn btn-warning btn-block" ng-hide="vm.poll.options.length === 5">Add Poll Option +</button>    
+    <br>
+    <button ng-click="vm.addPoll()" class="btn btn-success btn-block">Add Poll</button>
+    </div>
+</div>
+<hr>
+<a ng-repeat="poll in vm.polls"href="/poll/{{poll._id}}" class="list-group-item active panel-success" >
+   
+         {{poll.name}}
+  
+</a>

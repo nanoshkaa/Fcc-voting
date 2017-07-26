@@ -1,0 +1,9 @@
+<a href="/main" ><button class="btn btn-success">Home</button></a> 
+<hr>
+<h3 ng-if="vm.error">{{vm.error}}</h3>
+<hr>
+<input type="text" class="form-control" placeholder="Your name here" ng-model="vm.user.name">
+<br>
+<input type="password" class="form-control" placeholder="Your password here" ng-model="vm.user.password">
+<br>
+<button class="btn btn-success" ng-click="vm.login()" ng-disabled="!vm.user || !vm.user.password || !vm.user.name">Login</button>
